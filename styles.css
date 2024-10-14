@@ -1,0 +1,95 @@
+/* General settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #e7e7d8;
+    font-size: 16px;
+    line-height: 1.8; /* Increased line height for better readability */
+    padding: 20px;
+    text-shadow: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: left;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #71717A;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #e7e7d8;
+}
+
+.header .tagline {
+    font-size: 1.1rem;
+    color: #71717A;
+    margin-top: 10px;
+}
+
+/* Section titles */
+h2 {
+    font-size: 1.8rem;
+    color: #ea4125;
+    margin-bottom: 20px;
+}
+
+/* General text styling for sections */
+p, ul li {
+    font-size: 1.2rem;
+    color: #e7e7d8;
+    margin-bottom: 20px; /* Adds space between paragraphs */
+}
+
+/* Selling points */
+.selling-points ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.selling-points ul li {
+    margin: 10px 0;
+    color: #e7e7d8;
+}
+
+/* Flowchart explanation */
+.flowchart-explanation {
+    margin-top: 40px; /* Adds space above the flowchart explanation */
+}
+
+.flowchart-explanation p {
+    margin-bottom: 25px; /* Adds space between each flow explanation */
+}
+
+.flowchart {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.flowchart img {
+    width: 100%;
+    max-width: 1000px;
+    border: 2px solid #71717A;
+    padding: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #71717A;
+    border-top: 1px solid #71717A;
+    padding-top: 10px;
+}

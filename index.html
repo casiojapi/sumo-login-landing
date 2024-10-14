@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sumo login </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Social Login using JWT ZK proofs and account abstraction</h1>
+            <p class="tagline">Zero Knowledge & Account Abstraction</p>
+        </header>
+
+        <section class="what-is-sumo">
+            <h2>What is SUMO?</h2>
+            
+            <p>
+                Powered by zero-knowledge and account abstraction, the SUMO SDK allows users to create and manage smart wallets with an easy one-click experience. 
+                Sign in with any Web2 OAuth provider such as Google, Discord, Apple, WeChat, and many others.
+            </p>
+            
+            <p>
+                Behind the scenes, SUMO uses session keys to manage accounts. These are stored client-side, ensuring full user sovereignty without the hassle of handling seed phrases.
+            </p>
+
+            <p>
+                With your Google account, sign in to your wallet from any device—PC, mobile, or tablet—while maintaining continuous access and control.
+            </p>
+
+        </section>
+
+        <section class="how-it-works">
+
+            <h2>How Does it Work?</h2>
+            <p>
+                Users log in with their Google account. The result is a JSON Web Token (JWT) cryptographically signed by their identity provider.
+                This JWT, along with additional data, is sent to a service that generates a zkProof, confirming the user’s account ownership 
+                without exposing credentials on-chain. The zkProof, paired with the ephemeral key, works as a two-factor authentication (2FA) 
+                and grants access to their blockchain smart wallet.
+            </p>
+
+            <div class="flowchart">
+                <img src="flowchart.png" alt="Flowchart showing how sumo works">
+            </div>
+    <div class="flowchart-explanation">
+                <h2>Flow Explanation</h2>
+                <p><strong>Generate Session Keys:</strong> The SUMO application generates a pair of ephemeral session keys (esk, epk) for the user’s session. These are created client-side and are short-lived.</p>
+                
+                <p><strong>OAuth Request:</strong> SUMO sends a request to the OAuth provider (Google) including the ephemeral public key, block limit and some randomness inside the nonce.</p>
+                
+                <p><strong>OAuth Nonce:</strong> The nonce is sent along with the login request. Once the user is authenticated by the OAuth provider (Google), the provider returns a JWT (JSON Web Token) containing all the user’s authentication data. This includes the signed nonce, which is crucial for verifying the validity of the session keys later on.</p>
+                
+                
+                <p><strong>Create Account:</strong> Using the JWT, SUMO computes a unique smart account address for the user. This address remains consistent for future sessions, ensuring users always interact with the same account, even after logging in with new sessions.</p>
+                
+                <p><strong>Start Session:</strong> with JWT, SUMO generates a zero-knowledge (ZK) proof. This proof establishes ownership of both the JWT and the ephemeral session keys, without revealing sensitive information publicly.</p>
+                
+                <p><strong>Sign Transaction:</strong> Users can now sign blockchain transactions (like token swaps) using the ZK proof and the ephemeral session key signature, ensuring secure and seamless interaction with the blockchain.</p>
+                
+                <p><strong>Send Transaction:</strong> Once signed, the user sends the transaction.</p>
+                
+                <p><strong>Session Continuity:</strong> Even if the user logs out, they can log in again later using Google OAuth and retain access to the same smart account. The system ensures session continuity while maintaining security and user control.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>2024 SUMO LOGIN</p>
+        </footer>
+    </div>
+</body>
+</html>
